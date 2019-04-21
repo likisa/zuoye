@@ -1,0 +1,107 @@
+1：查所有年龄在20岁以下的学生姓名及年龄。
+select Sname,age from S where age<20
+
+2：查考试成绩有不及格的学生的学号
+select DISTINCT son,con,grade from sc where grade<60
+
+3：查所年龄在20至23岁之间的学生姓名、系别及年龄。
+select sname,sdept,age from s where age between 20 and 23
+
+4：查计算机系、数学系、信息系的学生姓名、性别。
+select sname,sex from s where sdept in ('计算机系','数学系','信息系')
+
+5：查既不是计算机系、数学系、又不是信息系的学生姓名、性别
+select sname,sex from s where sdept not in ('计算机系','数学系','信息系')
+
+6：查所有姓“刘”的学生的姓名、学号和性别。
+select sname,sno,sex from s where sname like '刘%'
+
+7：查姓“上官”且全名为3个汉字的学生姓名。
+select sname from s where sname like '上官_'
+
+8：查所有不姓“张”的学生的姓名。
+select sname from s where sname not like '张%'
+
+9：查DB_Design课程的课程号。
+select cno from c where cname like 'DB_Design'
+
+10：查缺考的学生的学号和课程号。
+select sno,cno from sc where grade is null
+
+11：查年龄为空值的学生的学号和姓名。
+select sno,sname from s where age is null
+
+12：查计算机系20岁以下的学生的学号和姓名。
+select sno,sname from s where sdept='计算机系' and age<20
+
+13：查计算机系、数学系、信息系的学生姓名、性别。
+select sname,sex from s where sdept in ('计算机系','数学系','信息系')
+
+14：查询选修了C3课程的学生的学号和成绩，其结果按分数的降序排列。
+select sno,grade from sc where cno='C3' order by grade DESC
+
+15：查询全体学生的情况，查询结果按所在系升序排列，对同一系中的学生按年龄降序排列。
+select * from s order by sdept,age DESC
+
+16：查询学生总人数。
+select count(*) from s
+
+17：查询选修了课程的学生人数。
+select count(distinct sno) from sc
+
+18：计算选修了C1课程的学生平均成绩。
+select avg(grade) from sc where cno='C1'
+
+19：查询学习C3课程的学生最高分数。
+select max(grade) from sc where cno='C3'
+
+20：查询各个课程号与相应的选课人数。
+select cno,count(sno) as num from sc group by cno
+
+21：查询计算机系选修了3门以上课程的学生的学号。
+select cno,count(sno) as num from sc group by cno having count(sno)>=3
+
+22：求基本表S中男同学的每一年龄组（超过50人）有多少人？要求查询结果按人数升序排列，人数相同按年龄降序排列。
+select age,count(sno) from s where sex='男' group by age having count(*)>50 order by 2,age desc
+
+23：查询每个学生及其选修课程的情况。
+select s.sno,sname,age,sex,sdept,cno,grade from s,sc where s.sno=sc.sno
+
+24：查询选修了C2课程且成绩在90分以上的所有学生。
+select s.sno,sname from s,sc where s.sno=sc.sno and sc.cno='C2'and sc.grade>90
+
+25：查询每个学生选修的课程名及其成绩。
+select s.sno,sname,cname,sc.grade from s,sc,c where s.sno=sc.sno and c.cno=sc.cno
+
+26：统计每一年龄选修课程的学生人数。
+select age,count(distinct s.son) from s,sc where s.sno=sc.sno group by age
+
+27：查询选修了C2课程的学生姓名。
+select sname from s,sc where s.sno=sc.sno and sc.cno='C2'
+
+28：查询与“张三”在同一个系学习的学生学号、姓名和系别。
+select sno,sname,sdept from s where sdept in (select sdept from s where sname='张三')
+
+29：查询选修课程名为“数据库”的学生学号和姓名。
+select sno,sname from s where sno in (select sno from sc where cno in (select cno from c where cname='数据库'))
+
+30：查询与“张三”在同一个系学习的学生学号、姓名和系别。
+select sno,sname,sdept from s where sdept in (select sdept from s where sname='张三')
+
+31：查询选修课程名为“数据库”的学生学号和姓名。
+select sno,sname from s where sno in (select sno from sc where cno in (select cno from c where cname='数据库'))
+
+32：查询选修了C2课程的学生姓名。
+select sname from s,sc where s.sno=sc.sno and sc.cno='C2'
+
+33：查询所有未选修C2课程的学生姓名。
+select sname from s where not exists (select * from sc where sc.sno=s.sno and cno='C2')
+
+34：查询与“张三”在同一个系学习的学生学号、姓名和系别。
+select sno,sname,sdept from s where sdept in (select sdept from s where sname='张三')
+
+35：查询选修了全部课程的学生姓名。
+select sname from s where not exists (select * from c where not exists (select * from sc where sc.sno=s.sno and sc.cno=c.cno))
+
+36：查询所学课程包含学生S3所学课程的学生学号
+select distinct sno from sc as x where not exists (select * from sc as y where y.sno='S3' and not exists (select * sc as z where z.son=x.son and z.cno=y.con))

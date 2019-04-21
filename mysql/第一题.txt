@@ -1,0 +1,142 @@
+﻿查询同时参加计算机和英语考试的学生的信息
+
+1.创建student和score表
+CREATE TABLE student (id INT(10) NOT NULL UNIQUE PRIMARY KEY,name VARCHAR(20) NOT NULL,sex VARCHAR(4),birth YEAR,department VARCHAR(20) ,addressVARCHAR(50) );
+
+CREATE  TABLE  score (id  INT(10)  NOT NULL  UNIQUE  PRIMARY KEY  AUTO_INCREMENT ,stu_id  INT(10)  NOT NULL ,c_name  VARCHAR(20) ,grade  INT(10));
+
+
+
+2.为student表和score表增加记录
+向student
+表插入记录的INSERT语句如下：
+
+INSERT INTO student VALUES( 101,'张老大', '男',1988,'计算机系', '北京市海淀区');
+
+INSERT INTO student VALUES( 102,'张老二', '男',2006,'中文系', '北京市昌平区');
+
+INSERT INTO student VALUES( 103,'张三', '女',1999,'中文系', '湖南省永州市');
+
+INSERT INTO student VALUES( 104,'李四', '男',1998,'英语系', '辽宁省阜新市');
+
+INSERT INTO student VALUES( 105,'王五', '女',1996,'英语系', '福建省厦门市');
+
+INSERT INTO student VALUES( 106,'王六', '男',1997,'计算机系', '湖南省衡阳市');
+
+向score表插入记录的INSERT语句如下：
+
+INSERT INTO score VALUES(NULL,101, '计算机',98);
+
+INSERT INTO score VALUES(NULL,101, '英语', 80);
+
+INSERT INTO score VALUES(NULL,102, '计算机',65);
+
+INSERT INTO score VALUES(NULL,102, '中文',88);
+
+INSERT INTO score VALUES(NULL,103, '中文',95);
+
+INSERT INTO score VALUES(NULL,104, '计算机',70);
+
+INSERT INTO score VALUES(NULL,104, '英语',92);
+
+INSERT INTO score VALUES(NULL,105, '英语',94);
+
+INSERT INTO score VALUES(NULL,106, '计算机',90);
+
+INSERT INTO score VALUES(NULL,106, '英语',85);
+
+
+
+3.查询student表的所有记录
+
+select * from student
+
+
+
+4.查询student表的第2条到4条记录
+
+select * from student LIMIT 1,3
+
+
+
+5.从student表查询所有学生的学号（id）、姓名（name）和院系（department）的信息
+
+select id,name,department from student
+
+
+
+6.从student表中查询计算机系和英语系的学生的信息
+
+select * from student where department in ('英语系','计算机系')
+
+
+
+7.从student表中查询年龄18~22岁的学生信息
+
+select id,name,sex,2019-birth AS age,department,address from student where 2019-birth BETWEEN  18 AND 22;
+
+
+
+8.从student表中查询每个院系有多少人
+
+select department, count(id) from student group by department;
+
+
+
+10.查询李四的考试科目（c_name）和考试成绩（grade)
+
+select c_name,grade from score where stu_id = (select id from student where name = '李四');
+
+
+
+11.用连接的方式查询所有学生的信息和考试信息
+
+select student.id,name,sex,birth,department,address,c_name,grade from student,score where student.id=score.stu_id;
+
+
+
+12.计算每个学生的总成绩
+
+select student.id,name,sum(grade) as grade FROM student,score where student.id=score.stu_id group by id;
+
+
+
+13.计算每个考试科目的平均成绩
+
+select c_name,avg(grade) as grade FROM score group by c_name
+
+
+
+14.查询计算机成绩低于95的学生信息
+
+select * from student where id in (select stu_id FROM score where c_name = '计算机' and grade < 95)
+
+
+
+15.查询同时参加计算机和英语考试的学生的信息
+
+select * from student where id in (select stu_id FROM score where stu_id in (select stu_id FROM score where c_name = '计算机') and c_name='英语')
+
+
+
+16.将计算机考试成绩按从高到低进行排序
+
+select stu_id, grade from score where c_name= '计算机' order by grade desc;
+
+
+
+18.查询姓张或者姓王的同学的姓名、院系和考试科目及成绩
+
+select name,department,c_name,grade from student, score where (name like '张%' OR name like '王%')  and student.id=score.stu_id;
+
+
+
+19.查询都是湖南的学生的姓名、年龄、院系和考试科目及成绩
+
+select name,2019-birth as age,department, address, c_name,grade from student, score where address like '湖南%' and student.id=score.stu_id;
+
+
+
+20.把张三的姓名改为张三丰，课程改为java 分数100
+
+update student,score set student.name='张三丰',score.c_name='java',score.grade='100' where student.name='张三' and student.id=score.stu_id
