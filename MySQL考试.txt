@@ -1,0 +1,7 @@
+1. 找出连续的座位号
+select l3.teat_id,l2.teat_id,l1.teat_id from `train` l1 left join train l2 on l1.teat_id=l2.teat_id+1 left join train l3 on l1.teat_id=l3.teat_id+2 where l1.is_free=l2.is_free and l1.is_free=l3.is_free
+
+2. 找出员工奖金(bonus)少于1000的员工名和奖金数额
+select employee.name as name,bonus.bonus as bonus from employee,bonus where employee.empid=bonus.empid and bonus.bonus<1000
+
+3.找出没有销售给RED公司的订单的人
