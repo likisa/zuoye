@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>pcss基础_作业</title>
+		<link rel="stylesheet" type="text/css" href="css/1-11.css" />
+	</head>
+	<body>
+		<article>
+			<h1>Docker的应用场景</h1>
+		</article>
+		<section class="b1">
+		 	<p>给第一篇文章下面的所有section里面的内容 字体颜色变为 红色 加粗</p>
+		</section>
+		<article class="b1">
+			<p>给第一篇文章没有标签部分的文字给个你认为最能表示他语义化的标签</p>
+		</article>
+		<section class="b2">
+		 	<p>给第一篇文章的最后一个section 加上虚线形状的边框</p>
+		</section>
+		<article><h2>第二章</h2></article>
+		<div id="b3">
+			<p>给第二篇文章里面的所有p标签给出绿色 (使用id选择器)</p>
+			<p>给第二篇文章里面的所有p标签给出绿色 (使用id选择器)</p>
+		</div>
+		<article>
+			<div class="b4">
+				<p>给第二篇文章的article标签所有的子div标签下面的子p标签 改变字体样式和颜色(黄色) （使用class选择器）</p>
+			</div>
+		</article>
+		<article><h2>第三章</h2></article>
+		<section>
+			<p>第三篇文章中有代码 请加上适合的标签</p>
+			<div class="b5">.b4{font-family:"STFangsong",sans-serif;color: #FFFF00;}</div>
+			<p>给输出第三篇第二行文字在页面中换行 并加上样式,鼠标移动过去改变颜色</p>
+			<p>第三篇文章文字 '以上命令完整的意思可以解释为：' 后面的文字分为了两行 在不删除div标签的情况下使他们成为一行</p>
+			<p>在后面自行写一含有个账户 密码 确认密码 提交按钮 重置按钮 的表单 提交地址随意 提交方法 POST方法 请给表单加上红色边框 </p>
+			<form action="css/1-11.css" method=“post”>
+				<fieldset class="b6">
+					账户：<input type="text" name="zhanghu" value="zhanghu" /><br />
+					密码：<input id="pwd" type="password" name="mima"/><br />
+					确认密码：<input id="pwd1" type="password" name="mima" /><br />
+					<input type="submit" name="提交" />
+					<input type="reset" name="重置" />
+				</fieldset>
+			</form>
+		</section>
+	</body>
+</html>

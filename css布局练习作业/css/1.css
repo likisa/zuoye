@@ -1,0 +1,32 @@
+.b1 {
+	width: 200px;
+	background-color: #EFEFEF;
+	border-radius: 5px;
+}
+.b1 ul{
+	list-style-type:none;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1{
+	text-align: center;
+}
+
+li {
+    border-bottom:1px solid white;
+    background-color: #EFEFEF;
+}
+
+
+li a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 30px;
+}
+
+li a:hover{
+	background: blueviolet;
+	color: red;
+}

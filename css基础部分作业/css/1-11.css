@@ -1,0 +1,25 @@
+.b1{
+	color: red;
+	font-weight: bold;
+}
+.b2{
+	border:1px dashed #000;
+	color: red;
+	font-weight: bold;
+}
+#b3>p{
+	color: #00FF00;
+}
+.b4{
+	font-family:"STFangsong",sans-serif;
+	color: #FFFF00;
+}
+.b5{
+	font-family:"STFangsong",sans-serif;
+}
+.b5:hover{
+	color: red;
+}
+.b6{
+	border: 1px solid red;
+}

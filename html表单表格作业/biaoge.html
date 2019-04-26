@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格表单作业</title>
+	</head>
+	<body>
+		<hr />
+		<table border="1">
+			<tr>
+			 <td><p>这是一个段落</p><p>这是另一个段落</p></td>
+			 <td>这是一个单元表格
+			 	<table border="1">
+			 		<tr>
+			 			<td>a</td>
+			 			<td>b</td>
+			 		</tr>
+			 		<tr>
+			 			<td>c</td>
+			 			<td>d</td>
+			 		</tr>
+			 	</table>
+			 </td>
+			</tr>
+			<tr>
+				<td>这是一个列表
+					<ul style="list-style-type: disc">
+			            <li>bwm</li>
+			            <li>benz</li>
+			            <li>audi</li>
+		        	</ul>
+				</td>
+				<td><h3>OVER</h3></td>
+			</tr>
+		</table>
+		<p>1.</p>
+		<hr />
+		<table border="1">
+			<tr>
+			 <th colspan="7">课程表</th>
+			</tr>
+			<tr>
+				<th colspan="2" align="left">日期\时间</th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+			</tr>
+			<tr>
+				<th rowspan="2">上午</th>
+				<th>9:30—10.15</th>
+				<th>c</th>
+				<th>python</th>
+				<th>go</th>
+				<th>java</th>
+				<th>js</th>
+			</tr>
+			<tr>
+				<th>10.00—11.50</th>
+				<th>java</th>
+				<th>js</th>
+				<th>go</th>
+				<th>c</th>
+				<th>c</th>
+			</tr>
+			<tr><td colspan="7"></td></tr>
+			<tr>
+				<th rowspan="2">下午</th>
+				<th>14:30—16.15</th>
+				<th>篮球</th>
+				<th>足球</th>
+				<th>羽毛球</th>
+				<th>排球</th>
+				<th>棒球</th>
+			</tr>
+			<tr>
+				<th>16.00—18.00</th>
+				<th>棒球</th>
+				<th>羽毛球</th>
+				<th>篮球</th>
+				<th>排球</th>
+				<th>排球</th>
+			</tr>
+		</table>
+		<br />
+		<p>2.
+			<div style="margin-left: 150px;">
+				<form>
+					<b>账号：</b><input type="text" name="zhanghao" placeholder="请输入账号" />
+					<b>(必填)</b><br /><br />
+					<b>密码：</b><input type="password" name="pwd" placeholder="请输入密码" />
+					<b>(必填)</b><br /><br />
+					<b>性别：</b><b>保密</b><input type="radio" name="sex" checked="checked" />
+					<b>男</b><input type="radio" name="sex" />
+					<b>女</b><input type="radio" name="sex" /><b>(选填)</b><br /><br />
+					<b>邮箱：</b><input type="text" name="mailbox" placeholder="请输入邮箱" />
+					<b>(必填)</b><br /><br />
+					<b>电话：</b><input type="text" name="photo" placeholder="请输入联系电话" />
+					<b>(必填)</b><br /><br />
+					<select name="mz" size="1" required  multiple style="background: #F8F8F8; margin:0px 50px;">
+						<option value="hlm">互联网/电子商务</option>
+						<option value="xcb">游戏</option>
+						<option value="xyj">开发</option>
+						<option value="shz">物流</option>
+						<option value="bsz">前端</option>
+						<option value="sgyy">后端</option>
+					</select><br /><br />
+					<input type="text" value="重庆" required style="width: 110px;margin: 0px 50px;" />
+					<br /><br />
+			        <textarea style="height:80px; width:340px; margin: 0px -50px;" maxlength="120" placeholder="请输入您的个性签名，不能超过120字符"></textarea>
+					<fieldset style="width: 430px;margin: 0px -100px;">
+						<legend style="margin: 0px 160px;"><b>用户注册</b></legend>
+						<b>身高：</b><input type="number" name="heigth" />
+						<b>体重：</b><input type="number" name="heigth" autofocus />
+					</fieldset><br />
+					<fieldset style="margin: 0px -180px;">
+						<legend style="margin: 0px 240px;"><b>兴趣爱好</b></legend>
+						<div style="margin: 0px 110px;">
+							<b>游泳</b><input type="checkbox" name="like" />
+							<b>唱歌</b><input type="checkbox" name="like" />
+							<b>摄影</b><input type="checkbox" name="like" />
+							<b>运动</b><input type="checkbox" name="like" checked />
+							<b>游戏</b><input type="checkbox" name="like" />
+							<b>撸代码</b><input type="checkbox" name="like" checked />
+						</div>
+					</fieldset><br />
+					<p style="margin: 0px -150px;">3.
+						<input type="submit" name="submit" value="注册" style="margin: 0px 180px;" />
+						<input type="reset" name="reset" value="取消" style="margin: 0px -140px;" />
+					</p>
+				</form>
+				
+			</div>
+		</p>
+	</body>
+</html>

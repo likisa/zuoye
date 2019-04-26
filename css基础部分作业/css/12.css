@@ -1,0 +1,12 @@
+a{
+	border: #007F00 solid 3px;
+	color: red;
+}
+a:hover{
+	color: #007F00;
+}
+.b1{
+	border: #007F00 solid 0px;
+	color: #000000;
+	text-decoration:none;
+}

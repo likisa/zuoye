@@ -1,0 +1,35 @@
+body{
+	background: #E5E5E5;
+}
+
+.b1{
+	width: 600px;
+	height: 770px;
+	margin: auto;
+	border: #9DCEF0 solid 2px;
+}
+.b2,.b3{
+	border: #9DCEF0 solid 2px;
+}
+.b3,.b4,.b5,.b8{
+	color: #0586F5;
+}
+p{
+	text-align: center;
+}
+.b4{
+	margin: 0px 0px 0px -100px;
+}
+.b5,.b9{
+	float: left;
+}
+.b6{
+	margin: 0px 0px 0px -170px;
+}
+.b7{
+	margin: 20px 80px 0px -170px;
+}
+.b10{
+	background: #9DCEF0;
+	border: #blue solid 1px;
+}
